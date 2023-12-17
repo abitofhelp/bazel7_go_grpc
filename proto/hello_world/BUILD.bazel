@@ -33,7 +33,13 @@ go_proto_library(
 # rules_go:
 #  Builds a Go library from a set of source files that are in the same package.
 go_library(
-    name = "go_default_library",
+    name = "hello_world",
     embed = [":hello_world_go_proto"],
     importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
+)
+
+alias(
+    name = "go_default_library",
+    actual = ":hello_world",
+    visibility = ["//visibility:public"],
 )
