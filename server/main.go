@@ -1,20 +1,8 @@
 package main
 
-import (
-	//"net"
-	//"os"
-	//"os/signal"
-	//"syscall"
-	//
-	//pb "github.com/jankremlacek/go-bazel/proto/servicea"
-	//"github.com/jankremlacek/go-bazel/shared"
-	"go.uber.org/zap"
-	//"google.golang.org/grpc"
-)
-
 func main() {
-	logger, _ := zap.NewProduction()
-	defer logger.Sync()
+	//logger, _ := zap.NewProduction()
+	//defer logger.Sync()
 }
 
 //
