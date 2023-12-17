@@ -7,6 +7,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/abitofhelp/bazel7_go_grpc/client",
     deps = [
+        "//proto/hello_world:hello_world_go_proto",
         "@org_golang_google_grpc//:go_default_library",
     ],
 )

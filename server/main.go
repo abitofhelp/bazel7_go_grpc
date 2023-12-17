@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	pb "github/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+	pb "github.com/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
