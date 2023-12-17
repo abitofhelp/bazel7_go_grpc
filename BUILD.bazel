@@ -3,3 +3,16 @@ load("@bazel_gazelle//:def.bzl", "gazelle")
 
 # gazelle:prefix github.com/bazelbuild/rules_go/examples/basic-gazelle
 gazelle(name = "gazelle")
+
+go_library(
+    name = "basic-gazelle_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/bazelbuild/rules_go/examples/basic-gazelle",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "basic-gazelle",
+    embed = [":basic-gazelle_lib"],
+    visibility = ["//visibility:public"],
+)
