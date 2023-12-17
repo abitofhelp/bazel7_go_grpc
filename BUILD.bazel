@@ -1,18 +1,10 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@gazelle//:def.bzl", "gazelle")  #
+#load("@buildifier_prebuilt//:rules.bzl", "buildifier")
 
-# gazelle:prefix github.com/bazelbuild/rules_go/examples/basic-gazelle
+# gazelle:exclude bazel-*
+# gazelle:exclude binding
+# gazelle:exclude deployment
+# gazelle:exclude dist
+# gazelle:exclude security
+# gazelle:exclude vendor
 gazelle(name = "gazelle")
-
-go_library(
-    name = "basic-gazelle_lib",
-    srcs = ["main.go"],
-    importpath = "github.com/bazelbuild/rules_go/examples/basic-gazelle",
-    visibility = ["//visibility:private"],
-)
-
-go_binary(
-    name = "basic-gazelle",
-    embed = [":basic-gazelle_lib"],
-    visibility = ["//visibility:public"],
-)

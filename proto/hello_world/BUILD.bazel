@@ -1,24 +1,39 @@
-load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_descriptor_set", "proto_library")
+load("@rules_go//go:def.bzl", "go_library")
+load("@rules_go//proto:def.bzl", "go_proto_library")
 
+package(default_visibility = ["//visibility:public"])
+
+# rules_proto:
+#  Define a library with a protocol buffer, which may be used from multiple languages.
+#  Building a proto_library creates a file named xxxxx-descriptor-set.proto.bin,
+#  which is the descriptor set for the messages the rule srcs
 proto_library(
-    name = "helloworld_proto",
+    name = "hello_world_proto",
     srcs = ["hello_world.proto"],
-    visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:timestamp_proto",
+        "@googleapis//google/api:annotations_proto",
+    ],
 )
 
+# rules_go:
+#  Generates a set of .go files from a set of .proto files that are specified in a proto_library rule.
+#  The .go files are added to a Go library.
 go_proto_library(
-    name = "helloworld_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = "github.com/bazelbuild/rules_go/examples/basic-gazelle/proto/hello_world",
-    proto = ":helloworld_proto",
-    visibility = ["//visibility:public"],
+    name = "hello_world_go_proto",
+    compilers = ["@rules_go//proto:go_grpc"],
+    importpath = "github.com/abitofhelp/apis/proto/hello_world",
+    proto = ":hello_world_proto",
+    deps = [
+        "@org_golang_google_genproto_googleapis_api//annotations",
+    ],
 )
 
+# rules_go:
+#  Builds a Go library from a set of source files that are in the same package.
 go_library(
-    name = "hello_world",
-    embed = [":helloworld_go_proto"],
-    importpath = "github.com/bazelbuild/rules_go/examples/basic-gazelle/proto/hello_world",
-    visibility = ["//visibility:public"],
+    name = "go_default_library",
+    embed = [":hello_world_go_proto"],
+    importpath = "github.com/abitofhelp/apis/proto/hello_world",
 )
