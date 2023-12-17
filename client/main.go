@@ -3,6 +3,12 @@ package main
 import (
 	"context"
 	pb "github.com/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+
+	//"github.com/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+
+	//pb "github.com/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+
+	//pb "github.com/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
 	"google.golang.org/grpc"
 	"log"
 	"os"
@@ -21,7 +27,7 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := pb.NewGreeterClient(conn)
+	c := NewGreeterClient(conn)
 
 	// Contact the server and print out its response.
 	name := defaultName
