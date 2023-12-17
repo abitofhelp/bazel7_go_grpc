@@ -1,13 +1,12 @@
 package main
 
 import (
+	"context"
+	pb "github/abitofhelp/bazel7_go_grpc/bazel-bin/proto/hello_world/hello_world_go_proto_/github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+	"google.golang.org/grpc"
 	"log"
 	"os"
 	"time"
-
-	pb "github.com/abitofhelp/bazel7_go_grpc"
-	"golang.org/x/net/context"
-	"google.golang.org/grpc"
 )
 
 const (

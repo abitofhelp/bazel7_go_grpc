@@ -2,7 +2,7 @@
 ## https://github.com/aspect-build/bazel-lib/tree/main/.aspect/bazelrc
 
 build --color=yes --verbose_failures --stamp --workspace_status_command=./scripts/status.sh --cxxopt=-std=c++14 --host_cxxopt=-std=c++14 ###--@rules_rust//rust/toolchain/channel=nightly
-common  --announce_rc --show_timestamps #--enable_bzlmod
+common  --announce_rc --show_timestamps --enable_bzlmod
 query #--output=label_kind
 test --color=yes --test_verbose_timeout_warnings --test_output=errors
 test:stress --runs_per_test=10 --notest_keep_going

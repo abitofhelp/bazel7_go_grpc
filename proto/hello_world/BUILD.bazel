@@ -23,7 +23,7 @@ proto_library(
 go_proto_library(
     name = "hello_world_go_proto",
     compilers = ["@rules_go//proto:go_grpc"],
-    importpath = "github.com/abitofhelp/apis/proto/hello_world",
+    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
     proto = ":hello_world_proto",
     deps = [
         "@org_golang_google_genproto_googleapis_api//annotations",
@@ -35,5 +35,5 @@ go_proto_library(
 go_library(
     name = "go_default_library",
     embed = [":hello_world_go_proto"],
-    importpath = "github.com/abitofhelp/apis/proto/hello_world",
+    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
 )
