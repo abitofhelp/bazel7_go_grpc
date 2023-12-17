@@ -1,5 +1,4 @@
 load("@rules_proto//proto:defs.bzl", "proto_descriptor_set", "proto_library")
-load("@rules_go//go:def.bzl", "go_library")
 load("@rules_go//proto:def.bzl", "go_proto_library")
 
 package(default_visibility = ["//visibility:public"])
@@ -28,12 +27,4 @@ go_proto_library(
     deps = [
         "@org_golang_google_genproto_googleapis_api//annotations",
     ],
-)
-
-# rules_go:
-#  Builds a Go library from a set of source files that are in the same package.
-go_library(
-    name = "go_default_library",
-    embed = [":hello_world_go_proto"],
-    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
 )

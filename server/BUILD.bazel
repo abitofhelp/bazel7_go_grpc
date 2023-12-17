@@ -5,16 +5,16 @@ package(default_visibility = ["//visibility:public"])
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/abitofhelp/server",
+    importpath = "github.com/abitofhelp/bazel7_go_grpc/server",
     deps = [
-        "//proto/hello_world:hello_world_go_proto",
-        #"//proto/hello_world:go_default_library"
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_google_grpc//reflection:go_default_library",
     ],
 )
 
 go_binary(
     name = "greeter_server",
     embed = [":go_default_library"],
-    goos = "linux",
     goarch = "amd64",
+    goos = "linux",
 )

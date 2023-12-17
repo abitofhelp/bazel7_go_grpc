@@ -1,3 +1,4 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load("@gazelle//:def.bzl", "gazelle")  #
 #load("@buildifier_prebuilt//:rules.bzl", "buildifier")
 
@@ -8,3 +9,16 @@ load("@gazelle//:def.bzl", "gazelle")  #
 # gazelle:exclude security
 # gazelle:exclude vendor
 gazelle(name = "gazelle")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github/abitofhelp/bazel7_go_grpc",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "bazel7_go_grpc",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)
