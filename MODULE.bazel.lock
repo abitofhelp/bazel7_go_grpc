@@ -1582,7 +1582,7 @@
           "@@rules_go~0.43.0//:go.mod": "58f9901703af412a1a8771d283721ef391c0ca1cc6ef3c141334311965535676",
           "@@gazelle~0.34.0//:go.mod": "9ae159a385b2f244bbe964b9f91dbea6e7bd534e0b22e846655f241c65de2c49",
           "@@//:go.mod": "060c977325f4b866ee5b3ea7767587027d8e87ed82035e343cfe22524bac02d4",
-          "@@//:go.sum": "145e3c7c1d2200cf9aa8d7778fd35afc5bfd7de88e331d83b919ba259909a5d6",
+          "@@//:go.sum": "3b6382078f1f6114e4b9d288762bf1565374b0bbb981ddbfc2a0962ed1c69242",
           "@@rules_go~0.43.0//:go.sum": "c6368ec1da45691f9148115d7317e740c3b32313b624b8f6545ef36b2ab4d781",
           "@@gazelle~0.34.0//:go.sum": "7469786f3930030c430969cedae951e6947cb40f4a563dac94a350659c0fedc4"
         },
