@@ -4,6 +4,7 @@ import (
 	"context"
 	//zap "github.com/abitofhelp/bazel7_go_grpc/bazel-bazel7_go_grpc/external/gazelle~0.34.0~go_deps~org_uber_go_zap"
 	pb "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
+	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"log"
 	"os"
@@ -16,8 +17,8 @@ const (
 )
 
 func main() {
-	//logger, _ := zap.NewProduction()
-	//defer logger.Sync()
+	logger, _ := zap.NewProduction()
+	defer logger.Sync()
 
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
@@ -38,5 +39,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
-	log.Printf("Greeting: %s", r.Message)
+	logger.Info("Greeting: " + r.Message)
 }

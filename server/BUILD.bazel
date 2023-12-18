@@ -22,6 +22,6 @@ alias(
 go_binary(
     name = "greeter_server",
     embed = [":server_lib"],
-    goarch = "amd64",
-    goos = "linux",
+#    goarch = "amd64",
+#    goos = "linux",
 )
