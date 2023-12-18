@@ -1,13 +1,24 @@
 load("@rules_proto//proto:defs.bzl", "proto_descriptor_set", "proto_library")
-load("@rules_go//go:def.bzl", "go_library")
-load("@rules_go//proto:def.bzl", "go_proto_library")
+#load("@rules_go//go:def.bzl", "go_library")
+#load("@rules_go//proto:def.bzl", "go_proto_library")
 
 package(default_visibility = ["//visibility:public"])
 
-# rules_proto:
-#  Define a library with a protocol buffer, which may be used from multiple languages.
-#  Building a proto_library creates a file named xxxxx-descriptor-set.proto.bin,
-#  which is the descriptor set for the messages the rule srcs
+load("@rules_proto_grpc_go//:defs.bzl", "go_grpc_compile")
+go_grpc_compile(
+    name = "hello_world_go_grpc",
+    protos = [":hello_world_proto"],
+)
+
+go_grpc_compile(
+    name = "greeter_go_grpc",
+    protos = ["@rules_proto_grpc_example_protos//:greeter_grpc"],
+)
+
+## rules_proto:
+##  Define a library with a protocol buffer, which may be used from multiple languages.
+##  Building a proto_library creates a file named xxxxx-descriptor-set.proto.bin,
+##  which is the descriptor set for the messages the rule srcs
 proto_library(
     name = "hello_world_proto",
     srcs = ["hello_world.proto"],
@@ -16,30 +27,30 @@ proto_library(
         "@googleapis//google/api:annotations_proto",
     ],
 )
-
-# rules_go:
-#  Generates a set of .go files from a set of .proto files that are specified in a proto_library rule.
-#  The .go files are added to a Go library.
-go_proto_library(
-    name = "hello_world_go_proto",
-    compilers = ["@rules_go//proto:go_grpc"],
-    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
-    proto = ":hello_world_proto",
-    deps = [
-        "@org_golang_google_genproto_googleapis_api//annotations",
-    ],
-)
-
-# rules_go:
-#  Builds a Go library from a set of source files that are in the same package.
-go_library(
-    name = "hello_world",
-    embed = [":hello_world_go_proto"],
-    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
-)
-
-alias(
-    name = "go_default_library",
-    actual = ":hello_world",
-    visibility = ["//visibility:public"],
-)
+#
+## rules_go:
+##  Generates a set of .go files from a set of .proto files that are specified in a proto_library rule.
+##  The .go files are added to a Go library.
+#go_proto_library(
+#    name = "hello_world_go_proto",
+#    compilers = ["@rules_go//proto:go_grpc"],
+#    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
+#    proto = ":hello_world_proto",
+#    deps = [
+#        "@org_golang_google_genproto_googleapis_api//annotations",
+#    ],
+#)
+#
+## rules_go:
+##  Builds a Go library from a set of source files that are in the same package.
+#go_library(
+#    name = "hello_world",
+#    embed = [":hello_world_go_proto"],
+#    importpath = "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world",
+#)
+#
+#alias(
+#    name = "go_default_library",
+#    actual = ":hello_world",
+#    visibility = ["//visibility:public"],
+#)
