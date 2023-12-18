@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 3,
-  "moduleFileHash": "094eb15aff05b6484416b3908efd18c0dbb05e71f523debfe1a8595c5f8a9048",
+  "moduleFileHash": "1880c4766cfc4565c3423ddcc5071fff0f0902982b5623392c03478054c43c0a",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -39,7 +39,7 @@
             {
               "tagName": "download",
               "attributeValues": {
-                "version": "1.21.4"
+                "version": "1.21.5"
               },
               "devDependency": false,
               "location": {
@@ -4073,7 +4073,7 @@
                 "remote"
               ],
               "sdk_versions": [
-                "1.21.4",
+                "1.21.5",
                 "",
                 "1.21.1"
               ]
@@ -4093,7 +4093,7 @@
               "urls": [
                 "https://dl.google.com/go/{}"
               ],
-              "version": "1.21.4",
+              "version": "1.21.5",
               "strip_prefix": "go"
             }
           }
