@@ -1,8 +1,9 @@
 package main
 
+// This is just a placeholder application at this time.  I will implement something more robust, soon.
+
 import (
 	"context"
-	//zap "github.com/abitofhelp/bazel7_go_grpc/bazel-bazel7_go_grpc/external/gazelle~0.34.0~go_deps~org_uber_go_zap"
 	pb "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

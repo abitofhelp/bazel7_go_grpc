@@ -1,5 +1,7 @@
 package main
 
+// This is just a placeholder application at this time.  I will implement something more robust, soon.
+
 import (
 	"context"
 	pb "github.com/abitofhelp/bazel7_go_grpc/proto/hello_world"
